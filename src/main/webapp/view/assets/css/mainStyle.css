@@ -1,0 +1,129 @@
+.job-first-label {
+  margin-bottom:0px;
+}
+
+.job-detail-heading {
+  height:40px !important;
+}
+
+.assignee-input {
+  width:200px;
+}
+
+.select-user-box {
+  width:300px;
+  /*float:left;*/
+}
+
+.thumb-pic {
+  padding:5px;
+}
+
+.table-class {
+  border:none !important;
+}
+
+.table-class tr td {
+  /*background:green;*/
+  /*border:groove;*/
+  padding-left:20px;
+  padding-right:20px;
+  padding-top:10px;
+}
+
+.navbar-header.nav-head {
+}
+
+.file-input-reply {
+  width:500px;
+}
+
+.job-feature-group {
+  margin-top:90px;
+}
+
+.input-group.input-g {
+  width:300px;
+  /*background:green;*/
+}
+
+.search-panel-wrapper {
+  width:300px;
+  float:left;
+  margin:10px;
+}
+
+.btn.btn-success.btn-block.login-btn {
+  width:200px;
+  margin:auto;
+  margin-bottom:10px;
+  background:#2fa4e7;
+  border:none;
+}
+
+.btn.btn-success.btn-block.register-btn {
+  width:200px;
+  margin:auto;
+  background:#2fa4e7;
+  border:none;
+}
+
+.btn.btn-success.btn-block.login-btn:hover {
+  background:#1c73a4;
+}
+
+.btn.btn-success.btn-block.register-btn:hover {
+  background:#1c73a4;
+}
+
+.row.row-login.row-page-bg {
+  background:#2fa4e7;
+}
+
+.well.login-from-well {
+  /*background:rgba(47,164,231,0.37);*/
+  margin-top:50px;
+}
+
+.text-danger.login-text {
+  color:#1f1e1e;
+}
+
+.register-row {
+  width:50% !important;
+  text-align:center;
+  margin:auto;
+  margin-top:50px;
+}
+
+.canvas #viewport {
+  border:1px solid #2fa4e7;
+  width:100%;
+  background:blue;
+}
+
+.profile-canvas {
+  width:100%;
+  height:100%;
+  background:rgb(0,0,255);
+}
+
+.panel.panel-default.profile-info-panel {
+  max-width:300px;
+}
+
+.operation-table {
+  border:groove;
+  border-radius:5px;
+}
+
+.profile-iconbtn i {
+  margin-left:5px;
+  margin-right:5px;
+}
+
+.profile-iconbtn i:hover {
+  color:#2fa4e7;
+  cursor:pointer;
+}
+

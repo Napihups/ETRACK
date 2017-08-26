@@ -1,0 +1,22 @@
+Entity ITEMS 
+=============================
+
+
+(JOB)
+1. JobNo : number
+2. Description : String
+3. JobStatus : String
+4. RequestBy : String 
+5. RequestTo : String
+6. RequestDate: timestamp
+7. List<String> listOfImage : String (path of the image file stored in server)
+8. JobSummary : String  (additional feedback regarding the job )
+
+
+
+
+
+(Comments)
+1. Username : String
+2. DateOfComment: Date
+3. Comments : String 

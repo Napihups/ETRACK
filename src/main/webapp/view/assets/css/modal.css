@@ -1,0 +1,26 @@
+.modal-new-job {
+  width:950px;
+}
+
+.map-icon {
+  margin-left:10px;
+  color:#2fa4e7;
+}
+
+.btn-img-delete {
+  text-align:center;
+  height:40px;
+  /*background:green;*/
+}
+
+.btn-img-delete {
+  background:none;
+  border:none;
+}
+
+.btn-img-delete:hover {
+  color:#2fa4e7;
+  cursor:pointer;
+  background:none;
+}
+
