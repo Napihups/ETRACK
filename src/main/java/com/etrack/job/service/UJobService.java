@@ -13,6 +13,7 @@ public class UJobService implements IJobService{
 
 	@Autowired
 	JobRepository jobRepo;
+	String test = "Napi";
 	
 	@Override
 	public boolean createNewJob(JobRequestModel model) {
