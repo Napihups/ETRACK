@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
+import com.etrack.global.PersistentUtility;
 import com.etrack.registration.model.UserRole;
 import com.etrack.registration.model.Users;
-import com.etrack.registration.repository.PersistentUtility;
 
 @Repository
 public class LoginRepository {

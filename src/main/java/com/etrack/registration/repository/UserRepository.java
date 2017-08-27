@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.etrack.global.DateUtil;
+import com.etrack.global.PersistentUtility;
 import com.etrack.registration.exception.RegisterException;
 import com.etrack.registration.model.UserRole;
 import com.etrack.registration.model.Users;

@@ -1,5 +1,6 @@
 package com.etrack.job.service;
 
+import com.etrack.job.exception.InvalidJobDataException;
 import com.etrack.job.model.JobRequestModel;
 
 public interface IJobService {
@@ -11,7 +12,7 @@ public interface IJobService {
 	 * @param model
 	 * @return
 	 */
-	public boolean createNewJob(JobRequestModel model);
+	public boolean createNewJob(JobRequestModel model)throws InvalidJobDataException;
 	
 	
 	/**

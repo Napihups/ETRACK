@@ -130,6 +130,28 @@ $(function () {
                 .empty()
                 .text("status code: " + statusCode + "\n-------------------------\n" + message);
     }
+    
+    
+    function doCreateJob(formData){
+		$.ajax({
+			type: "POST",
+			url: "job/create",
+			data: JSON.stringify(formData),
+			contentType: "application/json; charset=utf-8",
+			dataType:"json",
+			headers: createAuthorizationTokenHeader(),
+			success : function(data, textStatus, errorThrown){
+				if(data.SUCCESS){
+					alert(data.MSG);
+				}else {
+					alert(data.MSG);
+				}
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				alert("Error occured with status : " + jqXHR.status);
+			}
+		});
+	}
 
     // REGISTER EVENT LISTENERS =============================================================
     $("#loginForm").submit(function (event) {
@@ -145,7 +167,23 @@ $(function () {
     });
 
     $("#logoutButton").click(function (){
-    	alert("Log out");
+    	removeJwtToken();
+    	window.location = "/";
+    });
+    
+    
+    
+    $("#jobForm").submit(function (event){
+		event.preventDefault();
+    	var $jobCreateForm = $(this);
+    	var $select = $("#reqTo");
+    	var formData = {
+    		DESCRIPTION: $jobCreateForm.find('input[name="jobDesciption"]').val(),
+    		REMARKS: $('textarea#jobRemarks').val(),
+    		REQUEST_TO: $('#reqTo').find(":selected").text(),
+    	};
+    	doCreateJob(formData);
+    	$("#squarespaceModal").modal("hide");
     });
 
    

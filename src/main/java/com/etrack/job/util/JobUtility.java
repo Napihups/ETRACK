@@ -4,13 +4,18 @@ import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.etrack.global.CommonUtil;
+import com.etrack.job.model.JobAbstract;
 import com.etrack.job.model.JobRequestModel;
 
 public class JobUtility {
 
 	
+	
+	
 	/**
 	 * Validating the content for this new JOB
+	 * Will perform a very basic validation for the JOB model as of now .
 	 * 
 	 * @param model
 	 * @return true if all the contents in field are approved, false if some fields are invalid
@@ -19,7 +24,15 @@ public class JobUtility {
 		
 		String description = model.getJobDescription();
 		String remarks = model.getRemarks();
-		if(description.length() >= 30 || remarks.length() >= 100){
+		String reqBy = model.getReqBy();
+		String reqTo = model.getReqTo();
+		String jobNo = model.getJobNo();
+		String jobStatus = model.getJobStatus();
+		Date jobOpenDate = model.getOpenDate();
+		if(CommonUtil.checkValueEmpty(description) || description.length() >= 1000 || remarks.length() >= 1000
+				|| CommonUtil.checkValueEmpty(remarks) || CommonUtil.checkValueEmpty(reqBy) 
+				|| CommonUtil.checkValueEmpty(reqTo) || CommonUtil.checkValueEmpty(jobNo) 
+				|| CommonUtil.checkValueEmpty(jobStatus) || CommonUtil.checkValueEmpty(jobOpenDate)){
 			return false;
 		} else {
 			return true;
@@ -65,6 +78,25 @@ public class JobUtility {
 		
 		String index = (String.valueOf(digit1) + String.valueOf(digit2) + String.valueOf(digit3) + String.valueOf(digit4));
 		model.setJobNo(index);
+	}
+	
+	
+	/**
+	 * To get the corresponding CODE for a job status.
+	 * 
+	 * @param code
+	 * @return
+	 */
+	public static Integer getJobStatusCode(String code){
+		switch(code){
+		case JobAbstract.OPEN: return 1;
+		case JobAbstract.CLOSED: return 2;
+		case JobAbstract.PENDING: return 3;
+		case JobAbstract.RESOLVED: return 4;
+		case JobAbstract.REVIEW: return 5;
+		case JobAbstract.WORKING: return 6;
+		default: return 1;
+		}
 	}
 	
 	
