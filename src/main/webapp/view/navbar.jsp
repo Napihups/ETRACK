@@ -10,7 +10,7 @@
             </ul>
             <ul class="nav navbar-nav right-navbar-list">
                 <li role="presentation"><a href="#">${welcomename}</a></li>
-                <li role="presentation"><a id="logoutButton">Logout </a></li>
+                <li role="presentation"><a href="#" id="logoutButton">Logout </a></li>
                 <li role="presentation"><a href="#">Account </a></li>
             </ul>
         </div>
@@ -43,7 +43,7 @@
                 <div class="form-group">
                   <label for="select" >Request to.</label>
                     <select class="form-control select-user-box" id="reqTo">
-                      <option>1</option>
+                      <option>Jatizso</option>
                       <option>2</option>
                       <option>3</option>
                       <option>4</option>

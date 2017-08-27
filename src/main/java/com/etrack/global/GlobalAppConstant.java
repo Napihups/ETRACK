@@ -9,5 +9,8 @@ public class GlobalAppConstant {
 	public static final String GLOBAL_DATE_FORMAT = "yyyyMMddHHmmss";
 	
 	public static final String APP_TOKEN_HEADER = "Authorization";
+	
+	
+	public static final String STATUS_OPEN = "OPEN";
 
 }

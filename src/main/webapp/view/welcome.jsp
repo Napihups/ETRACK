@@ -60,6 +60,5 @@
     <script src="view/assets/js/Pricing-Table-Item1.js"></script>
     <script src="js/jwt-decode.min.js"></script>
     <script src="js/client.js"></script>
-    <script src="js/jobs.js"></script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 $(function () {
 	
+	const client = require('./client.js');
+	
 	// REGISTER EVENT LISTENERS =============================================================
 	$("#jobForm").submit(function (event){
 			event.preventDefault();
@@ -7,10 +9,9 @@ $(function () {
 	    	var $select = $("#reqTo");
 	    	var formData = {
 	    		DESCRIPTION: $jobCreateForm.find('input[name="jobDesciption"]').val(),
-	    		REQUEST_TO: $('#reqTo').find(":selected").text(),
 	    		JOB_REMARKS: $('textarea#jobRemarks').val(),
+	    		REQUEST_TO: $('#reqTo').find(":selected").text(),
 	    	};
-	    	
 	    	doCreateJob(formData);
 	    	$("#squarespaceModal").modal("hide");
 	    });
@@ -27,7 +28,7 @@ $(function () {
 			data: JSON.stringify(formData),
 			contentType: "application/json; charset=utf-8",
 			dataType:"json",
-			headers: createAuthorizationTokenHeader(),
+			headers: client.createAuthorizationTokenHeader(),
 			success : function(data, textStatus, errorThrown){
 				alert(data);
 			},

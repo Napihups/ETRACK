@@ -12,7 +12,7 @@ public class JobRequestModel extends JobAbstract {
 	private String jobNo;
 
 	/** The description for JOB */
-	@JsonProperty("JOB_DESCRIPTION")
+	@JsonProperty("DESCRIPTION")
 	private String jobDescription;
 
 	/** The remarks or feedback */
