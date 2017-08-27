@@ -3,6 +3,7 @@ package com.etrack.job.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.etrack.job.exception.InsertJobException;
 import com.etrack.job.model.JobRequestModel;
 import com.etrack.job.repository.JobRepository;
 import com.etrack.job.util.JobUtility;
@@ -18,7 +19,13 @@ public class UJobService implements IJobService{
 		JobUtility.setOpenJobDate(model);
 		JobUtility.setJobNumber(model);	
 		model.setJobStatus(JobRequestModel.OPEN);
-		return jobRepo.insertNewJob(model));
+		try {
+			return jobRepo.insertNewJob(model);
+		} catch (InsertJobException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 			
 		
 	}
