@@ -12,7 +12,8 @@ $(function () {
     var $login = $("#login");
     var $userInfo = $("#userInfo").hide();
     var $loginNotif = $("#loginNotif").hide();
-
+    var $bodyContent = $("#bodyContent");
+    
     // FUNCTIONS =============================================================
     function getJwtToken() {
         return localStorage.getItem(TOKEN_KEY);
@@ -73,18 +74,56 @@ $(function () {
     	});
     }
     
-  //=================================================================================// 
+    function doCreateJob(formData){
+		$.ajax({
+			type: "POST",
+			url: "job/create",
+			data: JSON.stringify(formData),
+			contentType: "application/json; charset=utf-8",
+			dataType:"json",
+			headers: createAuthorizationTokenHeader(),
+			success : function(data, textStatus, errorThrown){
+				if(data.SUCCESS){
+					doCreateJobView();
+					alert(data.MSG);
+				}else {
+					alert(data.MSG);
+				}
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				alert("Error occured with status : " + jqXHR.status);
+			}
+		});
+	}
     
-    function doLogout() {
-        removeJwtToken();
-        $login.show();
-        $userInfo
-                .hide()
-                .find("#userInfoBody").empty();
-        $loggedIn.hide();
-        $loggedInBody.empty();
-        $notLoggedIn.show();
+    function doCreateJobView() {
+    	$.ajax({
+    		type: "GET",
+    		url: "job/112",
+    		contentType: "application/json; charset=utf-8",
+            headers: createAuthorizationTokenHeader(),
+            success : function(data) {
+    		    document.open();
+    		    document.write(data);
+    		    document.close();
+    		    
+    		}
+    	});
     }
+    function doForceLogout() {
+    	$.ajax({
+    		type: "GET",
+    		url: "/",
+    		contentType: "application/json; charset=utf-8",
+    		headers: createAuthorizationTokenHeader(),
+    		success : function(data) {
+    			
+    		}
+    	});
+    }
+    
+  //=================================================================================// 
+
 
     function createAuthorizationTokenHeader() {
         var token = getJwtToken();
@@ -132,26 +171,7 @@ $(function () {
     }
     
     
-    function doCreateJob(formData){
-		$.ajax({
-			type: "POST",
-			url: "job/create",
-			data: JSON.stringify(formData),
-			contentType: "application/json; charset=utf-8",
-			dataType:"json",
-			headers: createAuthorizationTokenHeader(),
-			success : function(data, textStatus, errorThrown){
-				if(data.SUCCESS){
-					alert(data.MSG);
-				}else {
-					alert(data.MSG);
-				}
-			},
-			error: function(jqXHR, textStatus, errorThrown){
-				alert("Error occured with status : " + jqXHR.status);
-			}
-		});
-	}
+   
 
     // REGISTER EVENT LISTENERS =============================================================
     $("#loginForm").submit(function (event) {
@@ -188,6 +208,7 @@ $(function () {
 
    
     
+    
 
 
     
@@ -197,12 +218,8 @@ $(function () {
                 .toggleClass("text-hidden")
                 .toggleClass("text-shown");
     });
+    
+   
 
-    // INITIAL CALLS =============================================================
-    if (getJwtToken()) {
-        $login.hide();
-        $notLoggedIn.hide();
-        showTokenInformation();
-
-    }
+    
 });

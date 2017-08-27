@@ -5,10 +5,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.etrack.global.GlobalAppConstant;
 import com.etrack.global.GlobalResponse;
@@ -18,7 +19,7 @@ import com.etrack.job.service.IJobService;
 import com.etrack.job.util.JobUtility;
 import com.etrack.security.JwtTokenUtility;
 
-@RestController
+@Controller
 @RequestMapping("job")
 public class JobController {
 
@@ -62,9 +63,43 @@ public class JobController {
 	       	resp.setMsg("Failed to Create job ");
 			return ResponseEntity.ok(resp);
 		}
-		
-
-		 
 	}
+	
+	
+	//FOR TESTING 
+	@RequestMapping("/112")
+	@PreAuthorize("hasAnyRole('USER')")
+	public String displayJob(Model model){
+//		JobRequestModel mod = new JobRequestModel();
+//		mod.setJobDescription("This is the Test DESCRIPTION");
+//		mod.setRemarks("This is th remarks of the job ");
+//		mod.setJobNo("1125");
+//		mod.setJobStatus(JobRequestModel.OPEN);
+//		mod.setOpenDate(DateUtil.getTimestamp(new Date()));
+//		mod.setReqBy("Napihups");
+//		mod.setReqTo("Jatizso");
+		model.addAttribute("DESC","This is the Test DESCRIPTION");
+		model.addAttribute("REMARKS","This is th remarks of the job");
+		model.addAttribute("JOB_NO", "1125");		
+		return "jobview";
+		
+	}
+	
+	
+	
+//	@RequestMapping("/job/{id}")
+//	@PreAuthorize("hasAnyRole('USER')")
+//	public ResponseE
+	
+//	@RequestMapping("/dashboard")
+//	@PreAuthorize("hasAnyRole('USER')")
+//	public String welcome(Model model, HttpServletRequest request){
+//		 String token = request.getHeader(TOKEN_HEADER);
+//       String username = jwtTokenUtil.getUsernameFromToken(token);
+//       EUserDetails user = (EUserDetails) userDetailsService.loadUserByUsername(username);
+//		model.addAttribute("message" , "Welcome to JSP spring boot");
+//		model.addAttribute("welcomename", user.getUserName());
+//		return "welcome";
+//	}
 
 }
